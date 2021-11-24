@@ -1,0 +1,27 @@
+@import '~normalize.css';
+@import './assets/fonts/inter.scss';
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
+html {
+  @include size(100%, 100%);
+  box-sizing: border-box;
+
+  * {
+    &,
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
+  }
+}
+
+body {
+  width: inherit;
+  height: inherit;
+  font-family: $main-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $backgroundColor;
+}
+

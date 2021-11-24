@@ -1,0 +1,101 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.toggle {
+    touch-action: pan-x;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    &Input {
+      @include size(1px, 1px);
+      border: 0;
+      clip: rect(0 0 0 0);
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+    }
+
+    &Check + &Uncheck {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 0;
+      bottom: 0;
+      @include margin-y(auto);
+      line-height: 0;
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+
+    &Check {
+      left: 8px;
+    }
+
+    &Uncheck {
+      opacity: 1;
+      right: 10px;
+    }
+
+    &Container {
+      @include size(37px, 20px);
+      padding: 0;
+      border-radius: 20px;
+      transition: all .2s ease;
+
+      &Active {
+        background-color: $purple;
+      }
+      &Unactive {
+        border: 1px solid $grey;
+        background-color: $white;
+      }
+      @include desktop {
+        @include size(24px, 13px);
+      }
+    }
+
+    &Circle {
+      transition: all .5s cubic-bezier(.23,1,.32,1) 0ms;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      @include size(14px, 14px);
+      border-radius: 50%;
+      background-color: $white;
+      box-sizing: border-box;
+      transition: all .25s ease;
+
+      &Active {
+        background-color: $white;
+      }
+      &Unactive {
+        background-color: $grey;
+      }
+      @include desktop {
+        @include size(9px, 9px);
+        top: 2px;
+      }
+    }
+
+    &Checked &Check {
+      opacity: 1;
+    }
+    &Checked &Uncheck {
+      opacity: 0;
+    }
+    &Checked &Circle {
+      left: 20px;
+      @include desktop {
+        left: 13px;
+      }
+    }
+}

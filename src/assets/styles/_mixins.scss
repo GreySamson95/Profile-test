@@ -1,0 +1,40 @@
+@import './variables';
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+  
+@mixin margin-x($margin) {
+    margin-right: $margin;
+    margin-left: $margin;
+}
+  
+@mixin margin-y($margin) {
+    margin-top: $margin;
+    margin-bottom: $margin;
+}
+  
+@mixin padding-x($padding) {
+    padding-right: $padding;
+    padding-left: $padding;
+}
+  
+@mixin padding-y($padding) {
+    padding-top: $padding;
+    padding-bottom: $padding;
+}
+
+//adaptive mixins
+
+@mixin mobile {
+    @media (min-width: #{$breackpoint}) {
+        @content;
+    }
+}
+ 
+@mixin desktop {
+    @media (max-width: #{$breackpoint}) {
+        @content;
+    }
+}
